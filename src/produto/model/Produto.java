@@ -2,15 +2,15 @@ package produto.model;
 
 public abstract class Produto {
 	    private int codigoProduto;
-	    private int tipo;
 		private String nomeProduto;
-	    private Double preco;
+		private int tipo;
+		private Double preco;
 	    private String descricao;
 	    
-		public Produto(int codigoProduto, int tipo, String nomeProduto, double preco, String descricao) {
+		public Produto(int codigoProduto, String nomeProduto, int tipo, double preco, String descricao) {
 			this.codigoProduto = codigoProduto;
-			this.tipo = tipo;
 			this.nomeProduto = nomeProduto;
+			this.tipo = tipo;
 			this.preco = preco;
 			this.descricao = descricao;			
 		}
@@ -23,16 +23,16 @@ public abstract class Produto {
 			this.codigoProduto = codigoProduto;
 		}
 		
-	    public int getTipo() {
+		public String getNomeProduto() {
+			return nomeProduto;
+		}
+
+		public int getTipo() {
 			return tipo;
 		}
 
 		public void setTipo(int tipo) {
 			this.tipo = tipo;
-		}
-
-		public String getNomeProduto() {
-			return nomeProduto;
 		}
 
 		public void setNomeProduto(String nomeProduto) {
@@ -57,24 +57,14 @@ public abstract class Produto {
 
 		public void exibir() {
 
-			String tipo = "";
-			
-			switch(this.tipo) {
-			case 1:
-				tipo = "Brinquedos Eletrônicos";
-			break;
-			case 2:
-				tipo = "Brinquedos Manuais";
-			break;
-			}
-			
-			System.out.println("\n\n***********************************************");
+    		System.out.println("\n\n***********************************************");
 			System.out.println("                Informações do Produto:");
 			System.out.println("***********************************************");
 			System.out.println("Código do Produto:  " + this.codigoProduto);
-			System.out.println("Tipo:  " + tipo);
 			System.out.println("Nome do Produto:  " + this.nomeProduto);
 			System.out.println("Descrição:  " + this.descricao);
+			System.out.println("Preço do Produto:  " + this.preco);
+
 			
 
 		}

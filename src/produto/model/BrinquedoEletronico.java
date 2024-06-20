@@ -4,8 +4,8 @@ public class BrinquedoEletronico extends Produto {
     private String modelo;
     private String marca;
 
-    public BrinquedoEletronico(int codigoProduto, String nomeProduto, double preco, String descricao, String modelo, String marca) {
-        super(codigoProduto, codigoProduto, nomeProduto, preco, descricao);
+    public BrinquedoEletronico(int codigoProduto, String nomeProduto, int tipo, double preco, String descricao, String modelo, String marca) {
+        super(codigoProduto, nomeProduto, tipo, preco, descricao);
         this.modelo = modelo;
         this.marca = marca;
     }
@@ -27,6 +27,6 @@ public class BrinquedoEletronico extends Produto {
     public void exibir() {
         super.exibir();
         System.out.println("Modelo: " + modelo);
-        System.out.println("Marca: " + marca  + "\n\n");
+        System.out.println("Marca: " + marca  + "\n");
     }
 }
