@@ -1,21 +1,34 @@
 package produto;
+
 import java.io.IOException;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import produto.model.ProdutoCarrinho;
+import produto.controller.Controller;
+
+import produto.model.BrinquedoEletronico;
+import produto.model.BrinquedoManual;
 
 public class Menu {
 
 	public static void main(String[] args) {
+
+		Controller produtos = new Controller();
+
 		Scanner leia = new Scanner(System.in);
 
-		int opcao;
-		System.out.println("TESTANDO EXIBIR PRODUTO:");
-
-        ProdutoCarrinho produtoTeste = new ProdutoCarrinho(1, "Carrinho de Controle Remoto", 199.99, "Carrinho de brinquedo com controle remoto", "Modelo X", "Marca Y");
-        produtoTeste.exibir();
+		String nomeProduto, descricao;
+		int opcao, codigoProduto;
+		double preco;
+		/*
+		 * System.out.println("TESTANDO EXIBIR PRODUTO:");
+		 * 
+		 * BrinquedoEletronico produtoTeste = new BrinquedoEletronico(1,
+		 * "Carrinho de Controle Remoto", 199.99,
+		 * "Carrinho de brinquedo com controle remoto", "Modelo X", "Marca Y");
+		 * produtoTeste.exibir();
+		 */
         
 		while (true) {
 			System.out.println("***********************************************");
@@ -43,7 +56,7 @@ public class Menu {
 				opcao = 0;
 			}
 
-			if (opcao == 7) {
+			if (opcao == 6) {
 				System.out.println("\nSem ideias ainda!");
 				sobre();
 				leia.close();
@@ -54,8 +67,47 @@ public class Menu {
 			case 1:
 				System.out.println("Cadastrar Produto: \n");
 
-				keyPress();
-				break;
+				System.out.println("Digite o Código do Brinquedo: ");
+				codigoProduto = leia.nextInt();
+				System.out.println("Digite o nome do Brinquedo: ");
+				leia.skip("\\R");
+				nomeProduto = leia.nextLine();
+				System.out.println("Digite o Preço do Brinquedo: ");
+				preco = leia.nextDouble();
+				
+				System.out.println("Digite o Descrição do Brinquedo: ");
+				descricao = leia.nextLine();
+
+				int tipo = 0;
+			    while (tipo != 1 && tipo != 2) {
+			        System.out.println("Digite o tipo do Brinquedo (1-Eletrônico ou 2-Manual): ");
+			        tipo = leia.nextInt();
+			        leia.nextLine(); 
+			    }
+
+			    switch (tipo) {
+			    case 1 -> {
+			    	System.out.println("Digite o modelo do Brinquedo Eletrônico: ");
+			        String modelo = leia.nextLine();
+			        System.out.println("Digite a marca do Brinquedo Eletrônico: ");
+			        String marca = leia.nextLine();
+					produtos.cadastrarProduto(new BrinquedoEletronico( codigoProduto, nomeProduto, preco, descricao, modelo, marca));
+
+
+			    } 
+			    case 2 -> {
+			        System.out.println("Digite o número de peças do Brinquedo Manual: ");
+			        int numeroDePecas = leia.nextInt();
+			        leia.nextLine(); 
+			        System.out.println("Digite o tema do Brinquedo Manual: ");
+			        String tema = leia.nextLine();
+					produtos.cadastrarProduto(new BrinquedoManual( codigoProduto, nomeProduto, preco, descricao, numeroDePecas, tema));
+
+			    }
+			    }
+
+			    keyPress();
+			    break;
 			case 2:
 				System.out.println("Consultar produto por código: \n");
 				
@@ -72,7 +124,12 @@ public class Menu {
 				keyPress();
 				break;
 			case 5:
-				System.out.println("Apagar Produto por Código: \n");	
+				System.out.println("Apagar Produto por Código: \n");
+				
+				System.out.println("Digite o Código do Produto: \n");
+				codigoProduto = leia.nextInt();
+				
+				produtos.deletarProduto(codigoProduto);
 
 				keyPress();
 				break;
