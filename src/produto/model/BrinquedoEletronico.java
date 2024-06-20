@@ -1,11 +1,11 @@
 package produto.model;
 
-public class ProdutoCarrinho extends Produto {
+public class BrinquedoEletronico extends Produto {
     private String modelo;
     private String marca;
 
-    public ProdutoCarrinho(int idProduto, String nomeProduto, double preco, String descricao, String modelo, String marca) {
-        super(idProduto, idProduto, nomeProduto, preco, descricao);
+    public BrinquedoEletronico(int codigoProduto, String nomeProduto, double preco, String descricao, String modelo, String marca) {
+        super(codigoProduto, codigoProduto, nomeProduto, preco, descricao);
         this.modelo = modelo;
         this.marca = marca;
     }
@@ -27,6 +27,6 @@ public class ProdutoCarrinho extends Produto {
     public void exibir() {
         super.exibir();
         System.out.println("Modelo: " + modelo);
-        System.out.println("Marca: " + marca);
+        System.out.println("Marca: " + marca  + "\n\n");
     }
 }

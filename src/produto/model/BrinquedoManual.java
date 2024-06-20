@@ -1,11 +1,11 @@
 package produto.model;
 
-public class ProdutoLego extends Produto {
+public class BrinquedoManual extends Produto {
 	private int numeroDePecas;
 	private String tema;
     
-	public ProdutoLego(int idProduto, String nomeProduto, double preco, String descricao, int numeroDePecas, String tema) {
-		super(idProduto, idProduto, nomeProduto, preco, descricao);
+	public BrinquedoManual(int codigoProduto, String nomeProduto, double preco, String descricao, int numeroDePecas, String tema) {
+		super(codigoProduto, codigoProduto, nomeProduto, preco, descricao);
 		this.numeroDePecas = numeroDePecas;
 		this.tema = tema;
 	}
@@ -27,7 +27,7 @@ public class ProdutoLego extends Produto {
 	public void exibir() {
 		super.exibir();
 		System.out.println("Número de Peças: " + numeroDePecas);
-	    System.out.println("Tema: " + tema);
+	    System.out.println("Tema: " + tema + "\n\n");
 	}
 }
 
