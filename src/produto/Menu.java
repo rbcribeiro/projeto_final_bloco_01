@@ -1,15 +1,22 @@
+package produto;
 import java.io.IOException;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import produto.model.ProdutoCarrinho;
 
 public class Menu {
 
 	public static void main(String[] args) {
 		Scanner leia = new Scanner(System.in);
 
-		int opcao;		
-		
+		int opcao;
+		System.out.println("TESTANDO EXIBIR PRODUTO:");
+
+        ProdutoCarrinho produtoTeste = new ProdutoCarrinho(1, "Carrinho de Controle Remoto", 199.99, "Carrinho de brinquedo com controle remoto", "Modelo X", "Marca Y");
+        produtoTeste.exibir();
+        
 		while (true) {
 			System.out.println("***********************************************");
 			System.out.println("                                               ");
@@ -36,7 +43,7 @@ public class Menu {
 				opcao = 0;
 			}
 
-			if (opcao == 6) {
+			if (opcao == 7) {
 				System.out.println("\nSem ideias ainda!");
 				sobre();
 				leia.close();
