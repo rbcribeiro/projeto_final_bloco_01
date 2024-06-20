@@ -4,8 +4,8 @@ public class BrinquedoManual extends Produto {
 	private int numeroDePecas;
 	private String tema;
     
-	public BrinquedoManual(int codigoProduto, String nomeProduto, double preco, String descricao, int numeroDePecas, String tema) {
-		super(codigoProduto, codigoProduto, nomeProduto, preco, descricao);
+	public BrinquedoManual(int codigoProduto, String nomeProduto, int tipo, double preco, String descricao, int numeroDePecas, String tema) {
+		super(codigoProduto, nomeProduto, tipo, preco, descricao);
 		this.numeroDePecas = numeroDePecas;
 		this.tema = tema;
 	}
@@ -27,7 +27,7 @@ public class BrinquedoManual extends Produto {
 	public void exibir() {
 		super.exibir();
 		System.out.println("Número de Peças: " + numeroDePecas);
-	    System.out.println("Tema: " + tema + "\n\n");
+	    System.out.println("Tema: " + tema + "\n");
 	}
 }
 
